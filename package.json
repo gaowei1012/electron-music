@@ -19,6 +19,8 @@
     "babel-preset-react-app": "^9.1.2",
     "camelcase": "^5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
@@ -62,6 +64,7 @@
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
+    "wait-on": "^5.0.0",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
@@ -72,7 +75,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "electron": "electron .",
-    "dev": "concurrently \"yarn start\" \"electron .\""
+    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
