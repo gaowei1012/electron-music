@@ -1,0 +1,28 @@
+.ant-layout {
+  .left-layout-sider {
+    .ant-layout-sider-children {
+      height: 100vh;
+      background: #202020;
+      color: #fff;
+    }
+  }
+
+  .ant-layout-header {
+    background: #2b2b2b;
+    color: #fff;
+  }
+  .ant-layout-content,
+  .ant-layout-footer {
+    background-color: #252525;
+  }
+  .ant-layout-footer {
+    width: 100vw;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+// .footer {
+//   color: royalblue;
+// }

@@ -1,16 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './view/App';
-import {Provider} from 'react-redux';
-import store from './redux/store';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Router from "./router/router";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import "antd/dist/antd.css";
+import * as serviceWorker from "./serviceWorker";
+import "./style/common.scss";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 serviceWorker.unregister();
