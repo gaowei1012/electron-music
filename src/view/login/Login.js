@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, {PureComponent} from "react";
+
 class Login extends PureComponent {
   state = {};
   componentDidMount() {}
@@ -13,3 +14,6 @@ class Login extends PureComponent {
     return <>{this._renderLogin()}</>;
   }
 }
+
+export default Login;
+
