@@ -1,11 +1,20 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+import PersonalSvg from "../../assets/image/personal.svg";
 import "./index.scss";
 /**
- * 为了代码的整洁，请
- * 渲染列表时候，必须使用 key 
+ * 为了代码的整洁，请copy my codes
+ * 渲染列表时候，必须使用 key
  */
 export default class extends React.Component {
   state = {
+    login: [
+      {
+        id: 0,
+        name: "未登录",
+        icon: require("../../assets/svg/person.svg"),
+      },
+    ],
     music: [
       {
         id: 11,
@@ -37,80 +46,67 @@ export default class extends React.Component {
       },
     ],
   };
-  componentDidMount() {}
+  // 跳转登录页面
+  handleLogin = () => {
+    console.log("哈哈哈");
+    // this.props.history.push("/home");
+    // this.props.history.push("/login");
+    // this.props.history.push({
+    //   pathname: "/login",
+    // state: {
+    //   id: 3,
+    // },
+    // });
+  };
   render() {
     const { music, personal } = this.state;
+    let renderLogin = (
+      <>
+        <div className="login-box">
+          <img
+            className="login-img"
+            src={PersonalSvg}
+            width="26px"
+            height="26px"
+          />
+          <Link className="link" onClick={this.handleLogin} to="/login">
+            登录
+          </Link>
+        </div>
+      </>
+    );
     let renderMusic = (
       <>
-        {music && music.map(item => (
-            <div className="list" key={citem.id}>
-                <div className="img-box">
-                  <img src={citem.icon} />
-                </div>
-                <div>{citem.name}</div>
-          </div> 
-        ))}
+        {music &&
+          music.map((item) => (
+            <div className="list" key={item.id}>
+              <img src={item.icon} />
+              <div className="name">{item.name}</div>
+            </div>
+          ))}
       </>
     );
     let renderMe = (
       <>
-        <div>我的音乐</div>
-        {personal && personal.map(item => (
-          <div className="list" key={item.id}>
-           <div className="img-box">
-             <img src={item.icon} />
-           </div>
-           <div>{item.name}</div>
-         </div>
-        ))}
+        <div className="my-music-title">
+          <span>我的音乐</span>
+        </div>
+        {personal &&
+          personal.map((item) => (
+            <div className="list" key={item.id}>
+              <img src={item.icon} />
+              <div className="name">{item.name}</div>
+            </div>
+          ))}
       </>
     );
 
-    // let _renderList = (
-    //   <>
-    //     {array &&
-    //       array.map((item) => {
-    //         if (item.title != null) {
-    //           return (
-    //             <div key={item.pid}>
-    //               <div>{item.title}</div>
-    //               <div>
-    //                 {item.child.map((citem) => {
-    //                   return (
-    //                     <div className="list" key={citem.id}>
-    //                       <div className="img-box">
-    //                         <img src={citem.icon} />
-    //                       </div>
-    //                       <div>{citem.name}</div>
-    //                     </div>
-    //                   );
-    //                 })}
-    //               </div>
-    //             </div>
-    //           );
-    //         } else {
-    //           return (
-    //             <div key={item.id}>
-    //               {item.child.map((citem, index) => {
-    //                 return (
-    //                   <div className="list" key={citem.id}>
-    //                     <div className="img-box">
-    //                       <img src={citem.icon} />
-    //                     </div>
-    //                     <div>{citem.name}</div>
-    //                   </div>
-    //                 );
-    //               })}
-    //             </div>
-    //           );
-    //         }
-    //       })}
-    //   </>
-    // );
-
-    return <>
-      {renderMusic}
-      {renderMe}
-    </>;
+    return (
+      <>
+        {renderLogin}
+        {renderMusic}
+        {renderMe}
+      </>
+    );
   }
 }

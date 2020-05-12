@@ -15,14 +15,16 @@
   .ant-layout-footer {
     background-color: #252525;
   }
-  .ant-layout-footer {
-    width: 100vw;
-    background-color: #fff;
-    position: fixed;
-    bottom: 0;
-  }
+  // .ant-layout-footer {
+  //   // width: 100vw;
+  //   width: 100%;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   line-height: 53px;
+  //   background-color: #fff;
+  //   padding: 0 !important;
+  //   // position: fixed;
+  //   // bottom: 0;
+  // }
 }
-
-// .footer {
-//   color: royalblue;
-// }
