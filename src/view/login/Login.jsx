@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
 import { Input, Button } from "antd";
 import "./index.scss";
-// import { UserOutlined } from "@ant-design/icons";
+import { connect } from "react-redux";
+import actions from "../../redux/actions";
+
 // const {
 //   app,
 //   BrowserWindow,
@@ -19,31 +21,44 @@ class Login extends PureComponent {
     phone: "",
     pwd: "",
   };
-  componentDidMount() {}
-  // _openDialog = () => {
-  //   dialog.showOpenDialog();
-  // };
 
   // 返回上一级
   handleBack = () => {
     window.history.back(-1);
   };
-  // 登录
-  handleLogin = () => {};
   // 输入框信息
-  changeInput = (e) => {
-    console.log("111", e);
+  handleGetInputValue = () => {
+    const phone = document.getElementById("phone").value;
+    const pwd = document.getElementById("pwd").value;
+    this.setState({
+      phone: phone,
+      pwd: pwd,
+    });
   };
+  //登录
+  handleLogin = () => {
+    const { phone, pwd } = this.state;
+    const { goLogin } = this.props;
+    const url = `login/cellphone?phone=${phone}&password=${pwd}`;
+    goLogin(url, "GET");
+  };
+
   _renderLogin() {
     return (
       <>
         <div onClick={this.handleBack}>返回</div>
         <div className="login-box1">
           <div className="box">
-            {/* onClick={() => this.handleItem(item.id, item.title)} */}
-            {/* <Input placeholder="请输入手机号" prefix={<UserOutlined />} /> */}
-            <Input placeholder="请输入手机号" onChange={this.changeInput} />
-            <Input.Password placeholder="请输入密码" />
+            <Input
+              id="phone"
+              placeholder="请输入手机号"
+              onChange={this.handleGetInputValue}
+            />
+            <Input.Password
+              id="pwd"
+              placeholder="请输入密码"
+              onChange={this.handleGetInputValue}
+            />
           </div>
           <Button onClick={this.handleLogin}>登录</Button>
         </div>
@@ -51,13 +66,19 @@ class Login extends PureComponent {
     );
   }
   render() {
-    return (
-      <>
-        {this._renderLogin()}
-        {/* {this._openDialog()} */}
-      </>
-    );
+    return <>{this._renderLogin()}</>;
   }
 }
 
-export default Login;
+// export default Login;
+// state resucers con
+const mapStateToProps = (state) => ({
+  login: state.login,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  goLogin: (url, methods, data) =>
+    dispatch(actions.goLogin(url, methods, data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
