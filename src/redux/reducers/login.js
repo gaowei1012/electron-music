@@ -7,7 +7,7 @@ const initState = {};
  * @param {*} action diapatch触发
  */
 export default function loginAction(state = initState, action) {
-  switch (action.types) {
+  switch (action.type) {
     case types.GET_TOKEN_SUCCESS:
       return {
         ...state,

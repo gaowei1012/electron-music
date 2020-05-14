@@ -1,2 +1,3 @@
 import { goLogin } from "./login";
-export default { goLogin };
+import { getBanner } from "./banner";
+export default { goLogin, getBanner };

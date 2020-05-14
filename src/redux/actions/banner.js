@@ -1,20 +1,21 @@
 import types from "../actionTypes";
 import { request } from "../../js/request";
-// import Password from "antd/lib/input/Password";
-// 登录
-export function goLogin(url, methods) {
+
+// 获取banner
+export function getBanner(url, methods) {
   return (dispatch) => {
     request(url, methods)
       .then((res) => {
-        let data = res.data;
+        // console.log("banner res", res);
+        let data = res.data.banners;
         dispatch({
-          type: types.GET_TOKEN_SUCCESS,
+          type: types.GET_BANNER_SUCCESS,
           item: data,
         });
       })
       .catch((err) => {
         dispatch({
-          type: types.GET_TOKEN_FAIL,
+          type: types.GET_BANNER_FAIL,
           err,
         });
       });

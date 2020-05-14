@@ -5,6 +5,7 @@ import "./index.scss";
 import SideBar from "../../components/sideBar/SideBar";
 import HeaderContainer from "../../components/header/Header";
 import FooterContainer from "../../components/footer/Footer";
+import ContentContainer from "../banner";
 
 // Header, Footer, Sider, Content组件在Layout组件模块下
 const { Header, Footer, Sider, Content } = Layout;
@@ -21,8 +22,11 @@ class BasicLayout extends React.Component {
             <Header>
               <HeaderContainer />
             </Header>
-            {/* <Content>content</Content> */}
-            <Content> {this.props.children}</Content>
+
+            <Content>
+              <ContentContainer />
+            </Content>
+            {/* <Content> {this.props.children}</Content> */}
           </Layout>
         </Layout>
         <Footer>
