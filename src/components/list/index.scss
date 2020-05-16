@@ -10,8 +10,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    .box {
+      height: 178px;
+    }
+
     div {
       width: 134px;
+      cursor: pointer;
     }
     div:not(:last-child) {
       margin-right: 18px;

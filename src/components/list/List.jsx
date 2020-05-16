@@ -34,7 +34,7 @@ export default class List extends React.PureComponent {
           {list &&
             list.map((item) => {
               return (
-                <div key={item.id}>
+                <div key={item.id} className="box">
                   <div>
                     <img src={item.picUrl} alt="" />
                   </div>
