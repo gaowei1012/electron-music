@@ -11,6 +11,15 @@
     background: #2b2b2b;
     color: #fff;
   }
+
+  .ant-layout-content {
+    color: #fff;
+    // 31px 29px
+    padding: 0 29px 0 31px;
+    .content-box {
+      width: 100%;
+    }
+  }
   .ant-layout-content,
   .ant-layout-footer {
     background-color: #252525;

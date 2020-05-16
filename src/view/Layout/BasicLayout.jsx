@@ -4,8 +4,10 @@ import { Layout } from "antd";
 import "./index.scss";
 import SideBar from "../../components/sideBar/SideBar";
 import HeaderContainer from "../../components/header/Header";
-import FooterContainer from "../../components/footer/Footer";
-import ContentContainer from "../banner";
+// import FooterContainer from "../../components/footer/Footer";
+import Banner from "../banner";
+import PlayList from "../recommendedPlayList";
+import ExclusiveList from "../exclusiveBroadcast";
 
 // Header, Footer, Sider, Content组件在Layout组件模块下
 const { Header, Footer, Sider, Content } = Layout;
@@ -22,16 +24,19 @@ class BasicLayout extends React.Component {
             <Header>
               <HeaderContainer />
             </Header>
-
             <Content>
-              <ContentContainer />
+              <div className="content-box">
+                <Banner />
+                <PlayList />
+                <ExclusiveList />
+              </div>
             </Content>
             {/* <Content> {this.props.children}</Content> */}
           </Layout>
         </Layout>
-        <Footer>
+        {/* <Footer>
           <FooterContainer />
-        </Footer>
+        </Footer> */}
       </div>
     );
   }

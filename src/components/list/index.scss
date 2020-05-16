@@ -1,0 +1,20 @@
+.list-title {
+  color: #fff;
+  font-size: 18px;
+  margin: 51px 0 15px 0;
+}
+
+.listBox {
+  .lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    div {
+      width: 134px;
+    }
+    div:not(:last-child) {
+      margin-right: 18px;
+    }
+  }
+}

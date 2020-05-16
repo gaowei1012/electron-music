@@ -41,20 +41,21 @@ class Login extends PureComponent {
     const { phone, pwd } = this.state;
     const { goLogin } = this.props;
     const url = `login/cellphone?phone=${phone}&password=${pwd}`;
-    goLogin(url, "GET");
+    goLogin(url);
+
     // this.routerHome();
   };
 
   // 登录成功后跳转到首页
   routerHome = () => {
-    console.log("111");
-    this.handleLogin();
-
-    const LoginRes = this.props.login.item;
-    console.log("LoginRes:", LoginRes);
+    // console.log("111");
+    // this.handleLogin();
+    // const LoginRes = this.props.login.item;
+    // console.log("LoginRes:", LoginRes);
     /**
      * loginRes中的值传到sideBar并且将值保存到本地内存当中
      */
+    // setTimeout;
   };
 
   _renderLogin() {
@@ -91,8 +92,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  goLogin: (url, methods, data) =>
-    dispatch(actions.goLogin(url, methods, data)),
+  goLogin: (url) => dispatch(actions.goLogin(url)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

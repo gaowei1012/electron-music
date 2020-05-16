@@ -9,37 +9,46 @@ class Banner extends React.PureComponent {
   componentDidMount() {
     const url = "banner?type=1";
     const { getBanner } = this.props;
-    getBanner(url, "GET");
+    getBanner(url);
   }
 
   render() {
     const banner = this.props.banner.item;
 
     const params = {
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
       },
+      //   navigation: {
+      //     nextEl: ".swiper-button-next",
+      //     prevEl: ".swiper-button-prev",
+      //   },
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
       },
     };
 
     if (!banner) {
       return (
         <div>
-          <span>加载中</span>
+          <span className="color-fff">加载中</span>
         </div>
       );
     }
-    // console.log("banner", banner);
     let _renderArray = (
       <Swiper {...params}>
         {banner &&
-          banner.map((item) => (
-            <div key={item.encodeId}>
-              <img src={item.pic} alt="" />
+          banner.map((item, index) => (
+            <div key={index} className="img-box">
+              <img src={item.pic} alt={item.typeTitle} />
             </div>
           ))}
       </Swiper>
@@ -53,7 +62,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getBanner: (url, methods) => dispatch(actions.getBanner(url, methods)),
+  getBanner: (url) => dispatch(actions.getBanner(url)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Banner);

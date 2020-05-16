@@ -2,9 +2,9 @@ import types from "../actionTypes";
 import { request } from "../../js/request";
 
 // 获取banner
-export function getBanner(url, methods) {
+export function getBanner(url) {
   return (dispatch) => {
-    request(url, methods)
+    request(url)
       .then((res) => {
         // console.log("banner res", res);
         let data = res.data.banners;

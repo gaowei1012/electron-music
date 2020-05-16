@@ -1,20 +1,19 @@
 import types from "../actionTypes";
 import { request } from "../../js/request";
-// import Password from "antd/lib/input/Password";
-// 登录
-export function goLogin(url) {
+
+export function getPlayList(url) {
   return (dispatch) => {
     request(url)
       .then((res) => {
         let data = res.data;
         dispatch({
-          type: types.GET_TOKEN_SUCCESS,
+          type: types.GET_PLAY_LIST_SUCCESS,
           item: data,
         });
       })
       .catch((err) => {
         dispatch({
-          type: types.GET_TOKEN_FAIL,
+          type: types.GET_PLAY_LIST_FAIL,
           err,
         });
       });

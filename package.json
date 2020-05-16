@@ -88,7 +88,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "electron": "electron .",
-    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\""
+    "dev": "concurrently \"wait-on http://localhost:8000 && electron .\" \"cross-env BROWSER=none npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
