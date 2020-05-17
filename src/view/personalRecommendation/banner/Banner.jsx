@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import actions from "../../redux/actions";
+import actions from "../../../redux/actions";
 import Swiper from "react-id-swiper";
 import "swiper/css/swiper.css";
 import "./index.scss";

@@ -1,7 +1,7 @@
 import * as React from "react";
-import List from "../../components/list";
+import List from "../../../components/list";
 import { connect } from "react-redux";
-import actions from "../../redux/actions";
+import actions from "../../../redux/actions";
 class PlayList extends React.PureComponent {
   state = {
     limit: 10,
