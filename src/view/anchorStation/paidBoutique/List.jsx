@@ -10,13 +10,9 @@ class List extends React.PureComponent {
     getPaid(url);
   }
 
-  getParmas = (val) => {
-    console.log("--" + val);
-  };
-
   render() {
     const list = this.props.paidList.item;
-    console.log("list", list);
+    // console.log("list", list);
     if (!list) {
       return <div>数据加载中</div>;
     }

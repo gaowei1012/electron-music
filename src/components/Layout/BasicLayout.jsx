@@ -15,6 +15,7 @@ import HeaderContainer from "../../components/header/Header";
 // 主播电台
 import StationBanner from "../../view/anchorStation/banner";
 import PaidBoutique from "../../view/anchorStation/paidBoutique";
+import RadioType from "../../view/anchorStation/radioType";
 // 排行榜
 
 // 歌手
@@ -47,6 +48,7 @@ class BasicLayout extends React.Component {
                 <PlayVedio /> */}
                 <StationBanner />
                 <PaidBoutique />
+                <RadioType />
               </div>
             </Content>
             {/* <Content> {this.props.children}</Content> */}

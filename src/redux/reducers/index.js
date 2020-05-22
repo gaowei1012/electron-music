@@ -7,6 +7,8 @@ import playVedio from "./playVedio";
 import latestMusic from "./latest";
 import stationBanner from "./stationBanner";
 import paidList from "./paidBoutique";
+import radioType from "./radioType";
+
 const root = combineReducers({
   login,
   banner,
@@ -16,6 +18,7 @@ const root = combineReducers({
   latestMusic,
   stationBanner,
   paidList,
+  radioType,
 });
 
 export default root;

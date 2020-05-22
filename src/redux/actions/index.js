@@ -6,6 +6,7 @@ import { getVedio } from "./playVedio";
 import { getMusicList } from "./latest";
 import { getStationBanner } from "./stationBanner";
 import { getPaid } from "./paidBoutique";
+import { getRadioType } from "./radioType";
 export default {
   goLogin,
   getBanner,
@@ -15,4 +16,5 @@ export default {
   getMusicList,
   getStationBanner,
   getPaid,
+  getRadioType,
 };
