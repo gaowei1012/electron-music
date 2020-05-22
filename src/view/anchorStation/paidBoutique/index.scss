@@ -1,0 +1,29 @@
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  .list-box {
+    width: 45%;
+    display: flex;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #303030;
+    .img-box {
+      width: 134px;
+      height: 134px;
+      cursor: pointer;
+    }
+    .content {
+      padding-left: 9px;
+      line-height: 34px;
+      .name {
+        cursor: pointer;
+      }
+      // line-height: 50px;
+    }
+  }
+  // .list-box:not(:nth-child(9)):not(:last-child) {
+  //   border-bottom: 1px solid #303030;
+  // }
+}

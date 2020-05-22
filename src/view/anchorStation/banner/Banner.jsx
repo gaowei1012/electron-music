@@ -40,7 +40,7 @@ class Banner extends React.PureComponent {
       <Swiper {...params}>
         {result &&
           result.map((item, index) => (
-            <div key={index} className="img-box">
+            <div key={index}>
               <img src={item.pic} alt={item.typeTitle} />
             </div>
           ))}

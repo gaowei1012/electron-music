@@ -5,6 +5,7 @@ import { getList } from "./exclusiveList";
 import { getVedio } from "./playVedio";
 import { getMusicList } from "./latest";
 import { getStationBanner } from "./stationBanner";
+import { getPaid } from "./paidBoutique";
 export default {
   goLogin,
   getBanner,
@@ -13,4 +14,5 @@ export default {
   getVedio,
   getMusicList,
   getStationBanner,
+  getPaid,
 };

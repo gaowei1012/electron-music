@@ -6,6 +6,7 @@ import exclusiveList from "./exclusiveList";
 import playVedio from "./playVedio";
 import latestMusic from "./latest";
 import stationBanner from "./stationBanner";
+import paidList from "./paidBoutique";
 const root = combineReducers({
   login,
   banner,
@@ -14,6 +15,7 @@ const root = combineReducers({
   playVedio,
   latestMusic,
   stationBanner,
+  paidList,
 });
 
 export default root;
