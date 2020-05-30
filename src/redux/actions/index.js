@@ -7,6 +7,8 @@ import { getMusicList } from "./latest";
 import { getStationBanner } from "./stationBanner";
 import { getPaid } from "./paidBoutique";
 import { getRadioType } from "./radioType";
+import { getArtistList } from "./artistList";
+
 export default {
   goLogin,
   getBanner,
@@ -17,4 +19,5 @@ export default {
   getStationBanner,
   getPaid,
   getRadioType,
+  getArtistList,
 };

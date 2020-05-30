@@ -17,19 +17,22 @@ export default class List extends React.PureComponent {
         name: "sss",
       },
     ],
-    title: "哈哈哈",
+    title: "",
   };
 
   static propTypes = {
     list: PropTypes.array.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
-
+  // state = {
+  //   isShow: false,
+  // };
   render() {
+    // const { isShow } = this.state;
     const { list, title } = this.props;
     let _renderList = (
       <div className="listBox">
-        <div className="list-title">{title}</div>
+        <div>{title ? <div className="list-title">{title}</div> : null}</div>
         <div className="lists">
           {list &&
             list.map((item) => {

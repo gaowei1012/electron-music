@@ -13,20 +13,21 @@ import HeaderContainer from "../../components/header/Header";
 // 歌单
 
 // 主播电台
-import StationBanner from "../../view/anchorStation/banner";
-import PaidBoutique from "../../view/anchorStation/paidBoutique";
-import RadioType from "../../view/anchorStation/radioType";
+// import StationBanner from "../../view/anchorStation/banner";
+// import PaidBoutique from "../../view/anchorStation/paidBoutique";
+// import RadioType from "../../view/anchorStation/radioType";
 // 排行榜
 
 // 歌手
-
+import ArtistList from "../../view/artistList";
 // 最新音乐
-// import MusicList from "../latestMusic";
+// import MusicList from "../../view/latestMusic";
 
 // import FooterContainer from "../../components/footer/Footer";
 
 // Header, Footer, Sider, Content组件在Layout组件模块下
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
+// const { Header, Footer, Sider, Content } = Layout;
 
 class BasicLayout extends React.Component {
   render() {
@@ -46,9 +47,12 @@ class BasicLayout extends React.Component {
                 <PlayList />
                 <ExclusiveList />
                 <PlayVedio /> */}
-                <StationBanner />
+                {/* <StationBanner />
                 <PaidBoutique />
-                <RadioType />
+                <RadioType /> */}
+
+                {/* <MusicList /> */}
+                <ArtistList />
               </div>
             </Content>
             {/* <Content> {this.props.children}</Content> */}

@@ -34,21 +34,21 @@ export default class List extends React.PureComponent {
   static propTypes = {
     list: PropTypes.array.isRequired,
   };
-
-  renderSquare = () => {
-    // const
-    // return (
-    //   <>
-    //     {artists.map((citem, key) => {
-    //       <div key={key}>
-    //         <div>{citem.name}</div>
-    //         <div>{citem.picUrl}</div>
-    //       </div>;
-    //     })}
-    //   </>
-    // );
+  getData = (val) => {
+    let array = [];
+    val.map((item) => {
+      array.push(item);
+    });
+    //TODO:当有多个歌手时，会有重复图片
+    array.map((value) => {
+      console.log("value:", value);
+      return (
+        <div key={value.id}>
+          <div className="img-box">{value.picUrl}</div>
+        </div>
+      );
+    });
   };
-
   render() {
     const { list } = this.props;
 
@@ -56,14 +56,12 @@ export default class List extends React.PureComponent {
       <>
         {list &&
           list.map((item, index) => {
-            console.log("item:", item);
-            console.log("item--name:", item.artists);
-
+            //console.log("item--name:", item.artists);
             return (
-              <div key={item.id}>
+              <div className="box" key={index}>
                 <div>{index + 1}</div>
-                {/* {item.artists.map((fcitem, key) => renderSquare(fcitem, key))} */}
-                {/* {this.renderSquare(item.artists)} */}
+                {this.getData(item.artists)}
+
                 <div>{item.album.name}</div>
                 <div>{111}</div>
               </div>
