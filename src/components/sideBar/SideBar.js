@@ -1,32 +1,37 @@
 import * as React from "react";
+import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import PersonalSvg from "../../assets/image/personal.svg";
 import "./index.scss";
-/**
- * 为了代码的整洁，请copy my codes
- * 渲染列表时候，必须使用 key
- */
-export default class extends React.Component {
+export default class SideBar extends React.PureComponent {
   state = {
-    music: [
+    musicArray: [
       {
         id: 11,
         name: "发现音乐",
         icon: require("../../assets/svg/music.svg"),
+        url: "/findMusic",
       },
       {
         id: 22,
         name: "私人FM",
         icon: require("../../assets/svg/diantai.svg"),
+        url: "/playFM",
       },
-      { id: 33, name: "视频", icon: require("../../assets/svg/vedio.svg") },
+      {
+        id: 33,
+        name: "视频",
+        icon: require("../../assets/svg/vedio.svg"),
+        url: "/playVedio",
+      },
       {
         id: 44,
         name: "朋友",
         icon: require("../../assets/svg/friend.svg"),
+        url: "/friend",
       },
     ],
-    personal: [
+    personalArray: [
       {
         id: 55,
         name: "itunes音乐",
@@ -40,7 +45,7 @@ export default class extends React.Component {
     ],
   };
   render() {
-    const { music, personal } = this.state;
+    const { musicArray, personalArray } = this.state;
     let renderLogin = (
       <>
         <div className="login-box">
@@ -57,32 +62,52 @@ export default class extends React.Component {
         </div>
       </>
     );
+
     let renderMusic = (
-      <>
-        {music &&
-          music.map((item) => (
-            <div className="list" key={item.id}>
-              <img src={item.icon} alt="" />
-              <div className="name">{item.name}</div>
-            </div>
-          ))}
-      </>
-    );
-    let renderMe = (
-      <>
-        <div className="my-music-title">
-          <span>我的音乐</span>
-        </div>
-        {personal &&
-          personal.map((item) => (
-            <div className="list" key={item.id}>
-              <img src={item.icon} alt="" />
-              <div className="name">{item.name}</div>
-            </div>
-          ))}
-      </>
+      <Menu>
+        {musicArray &&
+          musicArray.map((item) => {
+            return (
+              <Menu.Item key={item.id}>
+                <div className="list">
+                  {/* <Link to={item.url} replace> */}{" "}
+                  {/*加一个replace是因为当前路由下的 history 不能 push 相同的路径到 stack 里。只有开发环境存在，生产环境不存在，目前还没看到官方有去掉的意思*/}
+                  {/* <Icon type={item.icon} /> */}
+                  <div className="img-box">
+                    <img src={item.icon} alt="" />
+                  </div>
+                  <Link to={item.url} replace>
+                    {""}
+                    <span>{item.name}</span>
+                  </Link>
+                </div>
+              </Menu.Item>
+            );
+          })}
+      </Menu>
     );
 
+    let renderMe = (
+      <Menu>
+        {personalArray &&
+          personalArray.map((item) => {
+            return (
+              <Menu.Item key={item.id}>
+                <div className="list">
+                  {/*加一个replace是因为当前路由下的 history 不能 push 相同的路径到 stack 里。只有开发环境存在，生产环境不存在，目前还没看到官方有去掉的意思*/}
+                  <div className="img-box">
+                    <img src={item.icon} alt="" />
+                  </div>
+                  <Link to={item.url} replace>
+                    {""}
+                    <span>{item.name}</span>
+                  </Link>
+                </div>
+              </Menu.Item>
+            );
+          })}
+      </Menu>
+    );
     return (
       <>
         {renderLogin}
