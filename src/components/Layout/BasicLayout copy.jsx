@@ -19,7 +19,7 @@ import HeaderContainer from "../../components/header/Header";
 // 排行榜
 
 // 歌手
-import ArtistList from "../../view/artistList";
+// import ArtistList from "../../view/artistList";
 // 最新音乐
 // import MusicList from "../../view/latestMusic";
 
@@ -41,20 +41,6 @@ class BasicLayout extends React.Component {
             <Header>
               <HeaderContainer />
             </Header>
-            <Content>
-              <div className="content-box">
-                {/* <Banner />
-                <PlayList />
-                <ExclusiveList />
-                <PlayVedio /> */}
-                {/* <StationBanner />
-                <PaidBoutique />
-                <RadioType /> */}
-
-                {/* <MusicList /> */}
-                {/* <ArtistList /> */}
-              </div>
-            </Content>
             <Content> {this.props.children}</Content>
           </Layout>
         </Layout>

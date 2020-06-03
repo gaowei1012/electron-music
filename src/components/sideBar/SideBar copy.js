@@ -46,6 +46,11 @@ export default class SideBar extends React.PureComponent {
       },
     ],
   };
+  handleItem = (name, url) => {
+    console.log("name", name);
+    console.log("url", url);
+    // if(){}
+  };
   render() {
     const { musicArray, personalArray } = this.state;
     let renderLogin = (
@@ -71,14 +76,20 @@ export default class SideBar extends React.PureComponent {
           musicArray.map((item) => {
             return (
               <Menu.Item key={item.id}>
-                <Link to={item.url} replace>
-                  <div className="list">
-                    <div className="img-box">
-                      <img src={item.icon} alt="" />
-                    </div>
-                    <span>{item.name}</span>
+                <div
+                  className="list"
+                  onClick={() => this.handleItem(item.name, item.url)}
+                >
+                  {/* <Link to={item.url} replace> */}{" "}
+                  {/*加一个replace是因为当前路由下的 history 不能 push 相同的路径到 stack 里。只有开发环境存在，生产环境不存在，目前还没看到官方有去掉的意思*/}
+                  {/* <Icon type={item.icon} /> */}
+                  <div className="img-box">
+                    <img src={item.icon} alt="" />
                   </div>
-                </Link>
+                  {/* <Link to={item.url} replace> */}
+                  <span>{item.name}</span>
+                  {/* </Link> */}
+                </div>
               </Menu.Item>
             );
           })}
@@ -94,7 +105,7 @@ export default class SideBar extends React.PureComponent {
                 <div className="list">
                   {/*加一个replace是因为当前路由下的 history 不能 push 相同的路径到 stack 里。只有开发环境存在，生产环境不存在，目前还没看到官方有去掉的意思*/}
                   <div className="img-box">
-                    <img src={item.icon} alt={item.name} />
+                    <img src={item.icon} alt="" />
                   </div>
                   <Link to={item.url} replace>
                     <span>{item.name}</span>
