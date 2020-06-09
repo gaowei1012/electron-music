@@ -3,7 +3,9 @@
     display: flex;
     .list {
       padding: 0 15px;
-      cursor: pointer;
+      .name {
+        cursor: pointer;
+      }
     }
   }
 }

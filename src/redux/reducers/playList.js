@@ -6,7 +6,7 @@ export default function getPlayList(state = initState, action) {
     case types.GET_PLAY_LIST_SUCCESS:
       return {
         ...state,
-        item: action.item,
+        item: action.item.result,
       };
     case types.GET_PLAY_LIST_FAIL:
       return {

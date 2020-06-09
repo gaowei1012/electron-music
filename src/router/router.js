@@ -3,20 +3,18 @@ import { Switch, Route, Router } from "react-router-dom";
 import { history } from "./history";
 
 import Load from "../components/lazy";
-let Login = Load(() => import("../view/login"));
-// const BasicLayout = Load(() => import("../components/Layout"));
-const findMusic = Load(() => import("../view/findMusic/find"));
+const Login = Load(() => import("../view/login"));
+const BasicLayout = Load(() => import("../components/Layout"));
+const FindMusic = Load(() => import("../view/findMusic"));
 
 export default class MyRouter extends React.Component {
   render() {
     return (
       <Router history={history}>
         <Switch>
-          <Route path="/" component={Login} />
-          <Route path="/findMusic" component={findMusic} />
-          {/* 
-          <Route path="/playVedio" component={playVedio} />
-          <Route path="/friend" component={friend} /> */}
+          <Route path="/" exact component={BasicLayout} />
+          <Route path="/login" component={Login} />
+          <Route path="/find" component={FindMusic} />
         </Switch>
       </Router>
     );

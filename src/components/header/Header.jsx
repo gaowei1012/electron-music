@@ -1,41 +1,25 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import "./index.scss";
-export default class extends React.PureComponent {
-  state = {
+
+export default class Header extends React.PureComponent {
+  static defaultProps = {
     array: [
       {
         id: 0,
         title: "个性推荐",
       },
-      {
-        id: 1,
-        title: "歌单",
-      },
-      {
-        id: 2,
-        title: "主播电台",
-      },
-      {
-        id: 3,
-        title: "排行榜",
-      },
-      {
-        id: 4,
-        title: "歌手",
-      },
-      {
-        id: 5,
-        title: "最新音乐",
-      },
     ],
   };
-  componentDidMount() {}
+  static propTypes = {
+    array: PropTypes.array.isRequired,
+  };
   handleItem = (id, title) => {
     console.log("id", id);
     console.log("title", title);
   };
   render() {
-    const { array } = this.state;
+    const { array } = this.props;
     let renderList = (
       <div className="list-box">
         {array &&

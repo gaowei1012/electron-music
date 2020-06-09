@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import "./index.scss";
+
 export default class List extends React.PureComponent {
   static defaultProps = {
     list: [
@@ -19,16 +20,11 @@ export default class List extends React.PureComponent {
     ],
     title: "",
   };
-
   static propTypes = {
     list: PropTypes.array.isRequired,
     title: PropTypes.string,
   };
-  // state = {
-  //   isShow: false,
-  // };
   render() {
-    // const { isShow } = this.state;
     const { list, title } = this.props;
     let _renderList = (
       <div className="listBox">

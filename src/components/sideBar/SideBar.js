@@ -10,7 +10,7 @@ export default class SideBar extends React.PureComponent {
         id: 11,
         name: "发现音乐",
         icon: require("../../assets/svg/music.svg"),
-        url: "/findMusic",
+        url: "/Find",
       },
       {
         id: 22,
@@ -42,7 +42,7 @@ export default class SideBar extends React.PureComponent {
         id: 66,
         name: "下载管理",
         icon: require("../../assets/svg/download.svg"),
-        url: "download",
+        url: "/download",
       },
     ],
   };
@@ -71,14 +71,14 @@ export default class SideBar extends React.PureComponent {
           musicArray.map((item) => {
             return (
               <Menu.Item key={item.id}>
-                <Link to={item.url} replace>
-                  <div className="list">
-                    <div className="img-box">
-                      <img src={item.icon} alt="" />
-                    </div>
-                    <span>{item.name}</span>
+                {/* <Link to={item.url} replace> */}
+                <div className="list">
+                  <div className="img-box">
+                    <img src={item.icon} alt="" />
                   </div>
-                </Link>
+                  <span>{item.name}</span>
+                </div>
+                {/* </Link> */}
               </Menu.Item>
             );
           })}

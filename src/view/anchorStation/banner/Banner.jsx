@@ -6,7 +6,7 @@ import "swiper/css/swiper.css";
 
 class Banner extends React.PureComponent {
   componentDidMount() {
-    const url = `/dj/banner`;
+    const url = "/dj/banner";
     const { getBanner } = this.props;
     getBanner(url);
   }

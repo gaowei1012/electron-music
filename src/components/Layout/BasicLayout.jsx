@@ -6,8 +6,8 @@ import "./index.scss";
 
 import SideBar from "../sideBar/SideBar";
 import HeaderContainer from "../header/Header";
-// import ContentContainer from "../content"
 const { Header, Sider, Content } = Layout;
+// import Banner from "../../view/personalRecommendation/banner";
 
 export default class BasicLayout extends React.Component {
   render() {
