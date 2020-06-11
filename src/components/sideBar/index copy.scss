@@ -1,0 +1,62 @@
+// 该页面公共样式
+.img-box {
+  width: 40px;
+  height: 40px;
+  i {
+    width: 100%;
+    height: 100%;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.my-music-title {
+  margin-top: 10px;
+  span {
+    margin-left: 6px;
+    font-size: 12px;
+  }
+}
+
+.ant-menu-item {
+  height: 100%;
+  margin: 0;
+  .list {
+    width: auto;
+    display: flex;
+    cursor: pointer;
+    color: #fff;
+    img {
+      width: 4vw;
+      height: 4vh;
+    }
+    span {
+      padding-left: 15px;
+      color: #fff;
+    }
+  }
+}
+
+// 登录
+
+.login-box {
+}
+
+// .login-box {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: row;
+//   margin-left: 20px;
+//   margin-top: 10px;
+//   .login-img {
+//     width: 26px;
+//     height: 26px;
+//   }
+//   .link {
+//     color: #fff;
+//     font-size: 16px;
+//     margin-left: 6px;
+//   }
+// }

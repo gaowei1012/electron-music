@@ -1,13 +1,10 @@
 import * as React from "react";
 import { Layout } from "antd";
+import SideBar from "../sideBar";
+import "./index.scss"
 
-import "./index.scss";
-// import Routes from "../../router/router";
+const { Sider, Content } = Layout;
 
-import SideBar from "../sideBar/SideBar";
-import HeaderContainer from "../header/Header";
-const { Header, Sider, Content } = Layout;
-// import Banner from "../../view/personalRecommendation/banner";
 
 export default class BasicLayout extends React.Component {
   render() {
@@ -18,9 +15,6 @@ export default class BasicLayout extends React.Component {
             <SideBar />
           </Sider>
           <Layout>
-            <Header>
-              <HeaderContainer />
-            </Header>
             <Content>{this.props.children || "Welcome to your music"}</Content>
           </Layout>
         </Layout>

@@ -1,2 +1,2 @@
-import lazy from "./Lazy";
-export default lazy;
+import Lazy from "./Lazy"
+export default Lazy
