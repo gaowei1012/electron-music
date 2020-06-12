@@ -7,13 +7,17 @@ export default class UserInfo extends React.PureComponent {
     token: "",
   };
   static defaultProps = {
-    name: "还好",
-    avatar_url:
-      "https://tse1-mm.cn.bing.net/th/id/OIP.SYF7F3QpQaX0jvThEZFU1wHaEk?pid=Api&rs=1",
+    // name: "还好",
+    // avatar_url:
+    //   "https://tse1-mm.cn.bing.net/th/id/OIP.SYF7F3QpQaX0jvThEZFU1wHaEk?pid=Api&rs=1",
+    userInfo: {
+      
+    },
   };
   static propTypes = {
-    name: PropTypes.string.isRequired, //.isRequired 必传
-    avatar_url: PropTypes.string,
+    // name: PropTypes.string.isRequired,
+    // avatar_url: PropTypes.string,
+    userInfo: PropTypes.object.isRequired,
   };
   componentDidMount() {
     const token = localStorage.getItem("token");
@@ -26,17 +30,26 @@ export default class UserInfo extends React.PureComponent {
   // 跳转页面
   handleItem = () => {
     const { token } = this.state;
-    token ? history.push("/detail") : history.push("/login");
+    // console.log("userInfo:", this.props.userInfo);
+
+    if (token) {
+      history.push({
+        pathname: "/detail",
+        state: { profile: this.props.userInfo },
+      });
+    } else {
+      history.push("/login");
+    }
   };
 
   render() {
-    const { name, avatar_url } = this.props;
+    const { userInfo } = this.props;
     let goLogin = (
       <div className="login-box" onClick={() => this.handleItem()}>
         <div className="img-box">
-          <img src={avatar_url} alt="用户头像" />
+          <img src={userInfo.avatarUrl} alt="用户头像" />
         </div>
-        <div className="name">{name}</div>
+        <div className="name">{userInfo.nickname}</div>
       </div>
     );
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import UserInfo from "../../views/personal/userInfo";
 import RecommendInfo from "../../views/recommend";
+import SongList from "../../views/songList";
 import { history } from "../../router/history";
 
 export default class extends React.PureComponent {
@@ -9,7 +10,6 @@ export default class extends React.PureComponent {
   };
   componentDidMount() {
     const state = history.location.state;
-    console.log("item---:", state);
     if (state) {
       this.setState({
         item: state.userInfo.profile,
@@ -23,8 +23,13 @@ export default class extends React.PureComponent {
     }
     return (
       <>
-        <UserInfo name={item.nickname} avatar_url={item.avatarUrl} />
+        <UserInfo
+          name={item.nickname}
+          avatar_url={item.avatarUrl}
+          userInfo={item}
+        />
         <RecommendInfo />
+        <SongList />
       </>
     );
   }

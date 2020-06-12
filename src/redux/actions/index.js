@@ -1,4 +1,12 @@
-import {onLoginAction} from "./user/login"
+import { onLoginAction } from "./user/login";
+import { goLoginout } from "./user/loginout";
+import { getLoginState } from "./user/loginSate";
+import { getUserInfo } from "./user/info";
+import { getSongList } from "./song/songList";
 export default {
-  onLoginAction
+  onLoginAction,
+  goLoginout,
+  getLoginState,
+  getUserInfo,
+  getSongList,
 };

@@ -37,14 +37,12 @@ class Login extends PureComponent {
     });
     const token = this.props.token;
     const item = token.item;
-    // console.log("isLoading", token.isLoading);
     if (token.isLoading === false) {
       localStorage.setItem("token", item.token);
       localStorage.setItem("userid", item.profile.userId);
       this.setState({
         isLoading: false,
       });
-      console.log("跳转页面");
       history.push({
         pathname: "/",
         state: { userInfo: item },

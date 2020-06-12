@@ -1,24 +1,21 @@
 import types from "../../actionTypes";
 import { request } from "../../../js/requset";
-// 登录
-export function onLoginAction(url) {
+
+export function getLoginState(url) {
   return (dispatch) => {
     request(url)
       .then((res) => {
         let data = res.data;
         dispatch({
-          type: types.GET_TOKEN_SUCCESS,
+          type: types.GET_LOGIN_STATE_SUCCESS,
           item: data,
         });
       })
       .catch((err) => {
         dispatch({
-          type: types.GET_TOKEN_FAIL,
+          type: types.GET_LOGIN_STATE_FAIL,
           err,
         });
       });
   };
 }
-
-
-
