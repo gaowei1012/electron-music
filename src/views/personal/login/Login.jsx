@@ -1,14 +1,15 @@
 import React, { PureComponent } from "react";
-import { Input, Button } from "antd";
+import { Input, Button, Spin } from "antd";
 import "./login.scss";
 import { connect } from "react-redux";
-import actions from "../../redux/actions";
-import ReactLoading from 'react-loading';
+import actions from "../../../redux/actions";
+import { history } from "../../../router/history";
 
 class Login extends PureComponent {
   state = {
     phone: "13666683140",
     pwd: "qq12345..**",
+    isLoading: false,
   };
 
   // 返回上一级
@@ -24,40 +25,42 @@ class Login extends PureComponent {
       pwd: pwd,
     });
   };
-  //登录
-  async getData() {
+
+  // TODO:第一次点击item为undefined，第二次点击才有值
+  handleLogin = () => {
     const { goLogin } = this.props;
     const { phone, pwd } = this.state;
     const url = `login/cellphone?phone=${phone}&password=${pwd}`;
-    const { result } = await goLogin(url);
-    console.log("result:", result);
-  }
-  // getData = async () => {
-  //   const { goLogin } = this.props;
-  //   const { phone, pwd } = this.state;
-  //   const url = `login/cellphone?phone=${phone}&password=${pwd}`;
-  //   const { result } = await goLogin(url);
-  //   console.log("result:", result);
-  // };
-
-  // TODO:第一次点击item为undefined，第二次点击才有值
-
-  handleLogin = () => {
-    /**
-     * 点击登录后，获取接口返回值并且带参跳转到首页
-     */
-    this.getData();
-    // const item = this.props.token.item;
-    // if (!item) {
-    //   console.log("请稍后");
-    // }
-    // console.log("item", item);
+    goLogin(url);
+    this.setState({
+      isLoading: true,
+    });
+    const token = this.props.token;
+    const item = token.item;
+    // console.log("isLoading", token.isLoading);
+    if (token.isLoading === false) {
+      localStorage.setItem("token", item.token);
+      localStorage.setItem("userid", item.profile.userId);
+      this.setState({
+        isLoading: false,
+      });
+      console.log("跳转页面");
+      history.push({
+        pathname: "/",
+        state: { userInfo: item },
+      });
+    }
   };
 
   render() {
+    const { isLoading } = this.state;
+
     let _renderLogin = (
       <div className="loginCOntainer">
         <div onClick={this.handleBack}>返回</div>
+        <div className="example">
+          <Spin spinning={isLoading} size="large" tip="正在登陆中，请稍后..." />
+        </div>
         <div className="login-box1">
           <div className="box">
             <Input

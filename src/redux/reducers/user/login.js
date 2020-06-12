@@ -12,12 +12,12 @@ export default function onLoginAction(state = initState, action) {
       return {
         ...state,
         item: action.item,
-        isLodding: false,
+        isLoading: false,
       };
     case types.GET_TOKEN_FAIL:
       return {
         ...state,
-        isLodding: true,
+        isLoading: true,
       };
 
     default:

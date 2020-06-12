@@ -1,21 +1,25 @@
+.example {
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0 0;
+}
+
 .loginCOntainer {
   width: 350px;
   height: 530px;
   background: green;
   margin: auto;
   .login-box1 {
-    // width: 350px;
-    // height: 530px;
-    // background: green;
-    // margin: auto;
     width: 260px;
     margin: auto;
     padding: 10px 0 0 0;
     .box {
       margin-bottom: 39px;
-      // .ant-input:first-child {
-      //   margin-bottom: 20px;
-      // }
+      #phone {
+        margin-bottom: 20px;
+      }
     }
     button {
       width: 100%;

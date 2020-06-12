@@ -1,0 +1,26 @@
+.my-music-title {
+  margin-top: 10px;
+  span {
+    margin-left: 6px;
+    font-size: 12px;
+  }
+}
+
+.ant-menu-item {
+  height: 100%;
+  margin: 0;
+  .list {
+    width: auto;
+    display: flex;
+    cursor: pointer;
+    color: #fff;
+    img {
+      width: 4vw;
+      height: 4vh;
+    }
+    span {
+      padding-left: 15px;
+      color: #fff;
+    }
+  }
+}

@@ -1,12 +1,30 @@
 import * as React from "react";
-import UserInfo from "./userInfo";
+import UserInfo from "../../views/personal/userInfo";
+import RecommendInfo from "../../views/recommend";
+import { history } from "../../router/history";
+
 export default class extends React.PureComponent {
+  state = {
+    item: {},
+  };
+  componentDidMount() {
+    const state = history.location.state;
+    console.log("item---:", state);
+    if (state) {
+      this.setState({
+        item: state.userInfo.profile,
+      });
+    }
+  }
   render() {
+    const { item } = this.state;
+    if (!item) {
+      console.log("用户信息不存在");
+    }
     return (
       <>
-        {/* <UserInfo username={item.nickname} avatar_url={item.avatarUrl} /> */}
-        <UserInfo/>
-        {/* <PersonalItem.login-box /> */}
+        <UserInfo name={item.nickname} avatar_url={item.avatarUrl} />
+        <RecommendInfo />
       </>
     );
   }

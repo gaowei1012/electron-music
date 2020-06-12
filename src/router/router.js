@@ -6,9 +6,9 @@ import { Switch, Route, Router } from "react-router-dom";
 import { history } from "./history";
 
 import Load from "../components/lazy";
-const Login = Load(() => import("../views/login"));
-const BasicLayout = Load(() => import("../components/layout"));
-// const FindMusic = Load(() => import("../view/findMusic"));
+const BasicLayout = Load(() => import("../components/Layout"));
+const Login = Load(() => import("../views/personal/login"));
+const Detail = Load(() => import("../views/personal/detail"));
 
 export default class MyRouter extends React.Component {
   render() {
@@ -17,7 +17,7 @@ export default class MyRouter extends React.Component {
         <Switch>
           <Route path="/" exact component={BasicLayout} />
           <Route path="/login" component={Login} />
-          {/* <Route path="/find" component={FindMusic} /> */}
+          <Route path="/detail" component={Detail} />
         </Switch>
       </Router>
     );
